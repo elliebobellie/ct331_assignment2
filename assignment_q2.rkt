@@ -12,6 +12,25 @@
 ;You may delete these comments!
 
 (provide ins_beg)
+(provide ins_end)
+(provide count_top_level)
 
+;(A)
 (define (ins_beg el lst)
-  (display "Hello, I'm ins_beg!\n"))
+  (cons el lst))
+
+;Test for (A)
+(ins_beg 'a '(b c d))
+(ins_beg '(a b) '(b c d))
+
+;(B)
+(define (ins_end el lst)
+  (append lst (list el)))
+
+;Test for (B)
+(ins_end 'a '(b c d))
+(ins_end '(a b) '(b c d))
+
+;(C)
+
+
