@@ -1,19 +1,9 @@
 #lang racket
 
-;This is an example implementation of ins_beg,
-;It obviously doesn't do what it should, so you
-;can edit this function to get started.
-;
-;Please note the provide function is necessary
-;for the unit tests to work. Please include a
-;(provide) for each function you write in your
-;submitted assignment.
-;
-;You may delete these comments!
-
 (provide ins_beg)
 (provide ins_end)
 (provide count_top_level)
+(provide count_instances)
 
 ;(A)
 (define (ins_beg el lst)
@@ -32,5 +22,20 @@
 (ins_end '(a b) '(b c d))
 
 ;(C)
+(define (count_top_level list)
+  (cond ((null? list) 0)
+        (else(+1 (count_top_level (cdr list))))
+        )
+ )
+
+;(D)
+(define (count_instances at list)
+  (cond ((null? list) 0)
+        ((= at (car list)) (+1 (count_instances at (cdr list))))
+        ((count_instances at (cdr list)))
+   )
+ )
+
+;(E)
 
 
